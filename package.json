@@ -1,14 +1,22 @@
 {
   "name": "music-loader",
   "version": "0.0.0",
+  "private": true,
+  "description": "Native music loader app",
+  "author": "variaxxx",
+  "main": "dist-electron/main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build": "npm run electron:serve-tsc && ng build",
+    "test": "ng test",
+    "electron:serve-tsc": "tsc -p tsconfig.serve.json",
+    "electron:serve": "wait-on tcp:4200 && npm run build && electron . --serve",
+    "electron:local": "npm run build && electron .",
+    "electron:build": "npm run build && electron-builder build --publish=never",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
@@ -25,13 +33,17 @@
     "@angular-devkit/build-angular": "^19.2.11",
     "@angular/cli": "^19.2.11",
     "@angular/compiler-cli": "^19.2.0",
+    "@antfu/eslint-config": "^4.16.2",
     "@types/jasmine": "~5.1.0",
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "wait-on": "^8.0.3"
   }
 }

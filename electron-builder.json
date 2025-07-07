@@ -1,0 +1,28 @@
+{
+  "asar": true,
+  "directories": {
+    "output": "release/"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts"
+  ],
+  "win": {
+    "icon": "dist/browser/assets/icon/favicon.ico",
+    "target": [
+      "portable"
+    ]
+  },
+  "linux": {
+    "icon": "dist/browser/assets/icon/favicon.png",
+    "target": [
+      "AppImage"
+    ]
+  },
+  "mac": {
+    "icon": "dist/browser/assets/icon/favicon.icns",
+    "target": [
+      "dmg"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "tailwindCSS.experimental.configFile": "src/styles.scss",
+  "files.associations": {
+    "*.scss": "tailwindcss"
+  }
+}
